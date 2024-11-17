@@ -37,26 +37,32 @@ Não partem da necessidade do cliente, têm relação com as tecnologias utiliza
 - [ ] Todas as listas de dados precisam estar paginadas pelo dia;
 - [ ] O usuário web deve ser identificado por um token JWT;
 
-## Esquema do banco de dados (primeira versão)
+## Esquema do banco de dados
 
 ### Entidade User
 - id
 - name
 - email
 - password
-
-### Entidade Link
-- id
-- user_id
-- device_id
+- verified_at
+- created_at
 
 ### Entidade Device
 - id
 - name
 - mac
+- enabled
+- created_at
+
+### Entidade Link
+- id
+- user_id
+- device_id
+- created_at
 
 ### Entidade Status
 - id
 - device_id
 - voltage
 - current
+- created_at
