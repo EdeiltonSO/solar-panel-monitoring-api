@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  password_hash String
+  devices       Link[]
+  created_at    DateTime  @default(now())
+  verified_at   DateTime?
+
+  @@map("users")
+}
+
+model Device {
+  id         String   @id @default(uuid())
+  name       String
+  mac        String   @unique
+  enabled    Boolean  @default(false)
+  owners     Link[]
+  Status     Status[]
+  created_at DateTime @default(now())
+
+  @@map("devices")
+}
+
+model Link {
+  id         String   @id @default(uuid())
+  user_id    String
+  device_id  String
+  created_at DateTime @default(now())
+
+  user   User   @relation(fields: [user_id], references: [id])
+  device Device @relation(fields: [device_id], references: [id])
+
+  @@map("links")
+}
+
+model Status {
+  id         String   @id @default(uuid())
+  mV         Int
+  mA         Int
+  device_id  String
+  created_at DateTime @default(now())
+
+  device Device @relation(fields: [device_id], references: [id])
+
+  @@map("status")
+}
