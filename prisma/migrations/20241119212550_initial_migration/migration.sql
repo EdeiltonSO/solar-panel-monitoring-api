@@ -6,6 +6,8 @@ CREATE TABLE "users" (
     "password_hash" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "verified_at" TIMESTAMP(3),
+    "maintenance_code" VARCHAR(6),
+    "maintenance_code_created_at" TIMESTAMP(3),
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );

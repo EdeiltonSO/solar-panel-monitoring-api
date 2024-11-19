@@ -14,13 +14,15 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(uuid())
-  name          String
-  email         String    @unique
-  password_hash String
-  devices       Link[]
-  created_at    DateTime  @default(now())
-  verified_at   DateTime?
+  id                          String    @id @default(uuid())
+  name                        String
+  email                       String    @unique
+  password_hash               String
+  devices                     Link[]
+  created_at                  DateTime  @default(now())
+  verified_at                 DateTime?
+  maintenance_code            String?   @db.VarChar(6)
+  maintenance_code_created_at DateTime?
 
   @@map("users")
 }
