@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "API do sistema de monitoramento de tensão e corrente do painel solar do núcleo temático em energias renováveis",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.ts",
