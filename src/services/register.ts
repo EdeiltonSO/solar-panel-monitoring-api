@@ -1,21 +1,18 @@
 import { hash } from 'bcryptjs'
 
-import { prisma } from '@/lib/prisma'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { UsersRepository } from '@/repositories/users-repository-interface'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
 import { User } from '@prisma/client'
 
-
 interface RegisterServiceRequest {
-  name: string
-  email: string
-  password: string
+    name: string
+    email: string
+    password: string
 }
 
 interface RegisterServiceResponse {
     user: User
-  }
+}
 
 export class RegisterService {
     constructor(private usersRepository: UsersRepository) {}
