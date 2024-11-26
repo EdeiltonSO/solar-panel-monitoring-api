@@ -43,7 +43,7 @@ export class PrismaStatusRepository implements StatusRepository {
     return status
   }
 
-  async create(data: Prisma.StatusCreateInput) {
+  async create(data: Prisma.StatusUncheckedCreateInput) {
     const status = await prisma.status.create({
       data,
     })
