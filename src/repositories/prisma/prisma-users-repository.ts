@@ -78,10 +78,10 @@ export class PrismaUsersRepository implements UsersRepository {
     return user
   }
 
-  async generateMaintenanceCode(id: string, maintenanceCode: string) {
+  async generateMaintenanceCode(email: string, maintenanceCode: string) {
     await prisma.user.update({
       where: {
-        id,
+        email,
       },
       data: {
         maintenance_code: maintenanceCode,

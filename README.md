@@ -8,11 +8,12 @@ O que o usuário pode fazer na aplicação?
 
 - [x] Deve ser possível se cadastrar;
 - [x] Deve ser possível se autenticar;
-- [ ] Deve ser possível verificar a conta com e-mail;
+- [x] Deve ser possível verificar a conta com e-mail;
 - [ ] Deve ser possível cadastrar um novo dispositivo;
 - [ ] Deve ser possível editar o cadastro de um dispositivo;
 - [x] Deve ser possível obter o perfil de um usuário logado;
 - [ ] Deve ser possível editar o perfil de um usuário logado;
+- [ ] Deve ser possível que o usuário altere a própria senha;
 - [ ] Deve ser possível obter um resumo do monitoramento atual (para o dashboard);
 - [ ] Deve ser possível receber um e-mail de alerta em caso de mal funcionamento da placa solar;
 - [ ] Deve ser possível o usuário obter o histórico do monitoramento;
@@ -31,11 +32,11 @@ Como os requisitos são implementados? Quais as restrições?
 
 ## Requisitos não-funcionais (RNF)
 
-Não partem da necessidade do cliente, têm relação com as tecnologias utilizadas.
+Não partem da necessidade do cliente, têm relação com as soluções tecnológicas utilizadas.
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados de status devem estar persistidos em um banco PostgreSQL;
-- [ ] Todas as listas de dados precisam estar paginadas pelo dia;
+- [ ] As listas de status devem ser obtidas com paginação;
 - [x] O usuário web deve ser identificado por um token JWT;
 
 ## Esquema do banco de dados

@@ -42,6 +42,7 @@ app.setErrorHandler((error, _, reply) => {
     if (env.NODE_ENV !== 'production') {
       console.error(error)
     } else {
+      console.error(error)
       // connect to an external tool for logs like datadog, sentry, ,etc
     }
   
