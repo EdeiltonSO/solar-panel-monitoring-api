@@ -1,7 +1,8 @@
 import fastify from 'fastify'
 import nodemailer from 'nodemailer';
 import Mailgen from 'mailgen';
-import { appRoutes } from './http/controllers/users/routes'
+import { usersRoutes } from './http/controllers/users/routes'
+import { devicesRoutes } from './http/controllers/devices/routes'
 import { ZodError } from 'zod'
 import { env } from './env'
 import fastifyJwt from '@fastify/jwt'
@@ -26,7 +27,8 @@ export const MailGenerator = new Mailgen({
   },
 });
 
-app.register(appRoutes)
+app.register(usersRoutes)
+app.register(devicesRoutes)
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,

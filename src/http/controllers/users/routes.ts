@@ -12,7 +12,7 @@ import { changeUserPassword } from './change-password'
 import { update } from './update'
 import { remove } from './remove'
 
-export async function appRoutes(app: FastifyInstance) {
+export async function usersRoutes(app: FastifyInstance) {
   app.post('/users', register)
   app.post('/sessions', authenticate)
   app.patch('/me/:id/validate', validate)
@@ -23,6 +23,6 @@ export async function appRoutes(app: FastifyInstance) {
 
   // authenticated and verified users
   app.get('/me', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, profile)
-  app.put('/me/update', { onRequest: [verifyJWT] }, update)
+  app.put('/me/update', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, update)
   app.delete('/me', { onRequest: [verifyJWT] }, remove)
 }

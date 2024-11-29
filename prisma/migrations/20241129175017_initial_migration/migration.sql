@@ -17,7 +17,7 @@ CREATE TABLE "devices" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "mac" TEXT NOT NULL,
-    "enabled" BOOLEAN NOT NULL DEFAULT false,
+    "enabled" BOOLEAN NOT NULL DEFAULT true,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "devices_pkey" PRIMARY KEY ("id")

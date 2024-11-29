@@ -9,11 +9,11 @@ O que o usuário pode fazer na aplicação?
 - [x] Deve ser possível se cadastrar;
 - [x] Deve ser possível se autenticar;
 - [x] Deve ser possível verificar a conta com e-mail;
-- [ ] Deve ser possível cadastrar um novo dispositivo;
+- [x] Deve ser possível cadastrar um novo dispositivo;
 - [ ] Deve ser possível editar o cadastro de um dispositivo;
 - [x] Deve ser possível obter o perfil de um usuário logado;
-- [ ] Deve ser possível editar o perfil de um usuário logado;
-- [ ] Deve ser possível que o usuário altere a própria senha;
+- [x] Deve ser possível editar o perfil de um usuário logado;
+- [x] Deve ser possível que o usuário altere a própria senha;
 - [ ] Deve ser possível obter um resumo do monitoramento atual (para o dashboard);
 - [ ] Deve ser possível receber um e-mail de alerta em caso de mal funcionamento da placa solar;
 - [ ] Deve ser possível o usuário obter o histórico do monitoramento;
@@ -25,7 +25,7 @@ Note que esses requisitos não se transformam necessariamente em rotas HTTP na a
 Como os requisitos são implementados? Quais as restrições?
 
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
-- [ ] O usuário pode cadastrar mais de um dispositivo;
+- [x] O usuário pode cadastrar mais de um dispositivo;
 - [ ] Um dispositivo pode ser monitorado por mais de um usuário;
 - [ ] Deve haver uma forma de autenticar o dispositivo que envia os dados de status;
 - [ ] O dispositivo deve enviar o seu endereço MAC junto com a requisição;

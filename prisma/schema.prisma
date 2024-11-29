@@ -31,7 +31,7 @@ model Device {
   id         String   @id @default(uuid())
   name       String
   mac        String   @unique
-  enabled    Boolean  @default(false)
+  enabled    Boolean  @default(true)
   owners     Link[]
   Status     Status[]
   created_at DateTime @default(now())
