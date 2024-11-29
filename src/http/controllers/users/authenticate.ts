@@ -25,6 +25,7 @@ export async function authenticate(
     const token = await reply.jwtSign(
       {
         validated_at: user.validated_at,
+        email: user.email
       },
       {
         sign: {

@@ -3,7 +3,8 @@ import '@fastify/jwt'
 declare module '@fastify/jwt' {
   export interface FastifyJWT {
     user: {
-      id: number
+      id: string
+      email: string
       validated_at: string | null
     }
   }

@@ -8,6 +8,9 @@ import { validate } from './validate'
 import { isMaintenanceCodeValid } from './is-maintenance-code-valid'
 import { generateMaintenanceCode } from './generate-maintenance-code'
 import { setNewUserPassword } from './set-new-password'
+import { changeUserPassword } from './change-password'
+import { update } from './update'
+import { remove } from './remove'
 
 export async function appRoutes(app: FastifyInstance) {
   app.post('/users', register)
@@ -16,7 +19,10 @@ export async function appRoutes(app: FastifyInstance) {
   app.patch('/me/generate-maintenance-code', generateMaintenanceCode)
   app.patch('/me/is-maintenance-code-valid', isMaintenanceCodeValid)
   app.patch('/me/set-new-password', setNewUserPassword)
+  app.patch('/me/change-password', { onRequest: [verifyJWT] }, changeUserPassword)
 
   // authenticated and verified users
   app.get('/me', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, profile)
+  app.put('/me/update', { onRequest: [verifyJWT] }, update)
+  app.delete('/me', { onRequest: [verifyJWT] }, remove)
 }
