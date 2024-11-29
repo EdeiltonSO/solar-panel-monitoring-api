@@ -4,7 +4,7 @@ import { makeAddDeviceService } from "@/services/factories/make-add-device-servi
 import { DeviceAlreadyExistsError } from "@/services/errors/device-already-exists-error";
 
 export async function addDevice(request: FastifyRequest, reply: FastifyReply) {
-  const updateBodySchema = z.object({
+  const bodySchema = z.object({
     name: z.string().trim().min(1).max(50),
     mac: z.string().trim().min(12).max(17),
   });
@@ -12,7 +12,7 @@ export async function addDevice(request: FastifyRequest, reply: FastifyReply) {
   const {
     name,
     mac
-  } = updateBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   const user_id = request.user.sub
 

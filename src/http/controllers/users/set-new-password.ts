@@ -5,7 +5,7 @@ import { ResourceNotFoundError } from "@/services/errors/resource-not-found-erro
 import { PasswordsNotMatchError } from "@/services/errors/passwords-not-match-error";
 
 export async function setNewUserPassword(request: FastifyRequest, reply: FastifyReply) {
-  const setNewUserPasswordBodySchema = z.object({
+  const bodySchema = z.object({
     email: z.string().trim().email(),
     maintenance_code: z.string().regex(/^\d{6}$/),
     new_password: z.string().min(6),
@@ -17,7 +17,7 @@ export async function setNewUserPassword(request: FastifyRequest, reply: Fastify
     maintenance_code,
     new_password,
     confirm_new_password
-  } = setNewUserPasswordBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   try {
     const setNewUserPasswordService = makeSetNewUserPasswordService()

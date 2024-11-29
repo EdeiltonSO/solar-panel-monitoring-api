@@ -4,13 +4,13 @@ import { UserNotFoundError } from "@/services/errors/user-not-found-error";
 import { makeUpdateUserService } from "@/services/factories/make-update-user-service";
 
 export async function update(request: FastifyRequest, reply: FastifyReply) {
-  const updateBodySchema = z.object({
+  const bodySchema = z.object({
     name: z.string().trim().optional(),
   });
 
   const {
     name,
-  } = updateBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   const id = request.user.sub
 

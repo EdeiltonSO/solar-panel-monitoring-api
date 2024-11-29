@@ -5,7 +5,7 @@ import { PasswordsNotMatchError } from "@/services/errors/passwords-not-match-er
 import { InvalidPasswordError } from "@/services/errors/invalid-password-error";
 
 export async function changeUserPassword(request: FastifyRequest, reply: FastifyReply) {
-  const changeUserPasswordBodySchema = z.object({
+  const bodySchema = z.object({
     "current_password": z.string().min(6),
     "new_password": z.string().min(6),
     "confirm_new_password": z.string().min(6),
@@ -15,7 +15,7 @@ export async function changeUserPassword(request: FastifyRequest, reply: Fastify
     current_password,
     new_password,
     confirm_new_password
-  } = changeUserPasswordBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   const id = request.user.sub
 

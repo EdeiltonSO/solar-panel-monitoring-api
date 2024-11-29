@@ -4,7 +4,7 @@ import { makeIsMaintenanceCodeValidService } from '@/services/factories/make-is-
 import { UserNotFoundError } from "@/services/errors/user-not-found-error";
 
 export async function isMaintenanceCodeValid(request: FastifyRequest, reply: FastifyReply) {
-  const isMaintenanceCodeValidBodySchema = z.object({
+  const bodySchema = z.object({
     email: z.string().trim().email(),
     code: z.string().regex(/^\d{6}$/),
   });
@@ -12,7 +12,7 @@ export async function isMaintenanceCodeValid(request: FastifyRequest, reply: Fas
   const {
     email,
     code
-  } = isMaintenanceCodeValidBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   let isValid = null
   try {

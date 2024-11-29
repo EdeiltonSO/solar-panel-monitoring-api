@@ -5,13 +5,13 @@ import { UserNotFoundError } from "@/services/errors/user-not-found-error";
 import { SendingEmailError } from "@/services/errors/sending-email-error";
 
 export async function generateMaintenanceCode(request: FastifyRequest, reply: FastifyReply) {
-  const generateMaintenanceCodeBodySchema = z.object({
+  const bodySchema = z.object({
     email: z.string().trim().email(),
   });
 
   const {
     email
-  } = generateMaintenanceCodeBodySchema.parse(request.body);
+  } = bodySchema.parse(request.body);
 
   let waitingTime
 

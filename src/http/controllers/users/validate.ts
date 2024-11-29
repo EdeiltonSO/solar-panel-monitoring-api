@@ -5,16 +5,16 @@ import { UserNotFoundError } from '@/services/errors/user-not-found-error';
 import { InvalidMaintenanceCodeError } from '@/services/errors/invalid-maintenance-code-error';
 
 export async function validate(request: FastifyRequest, reply: FastifyReply) {
-  const validateParamSchema = z.object({
+  const paramSchema = z.object({
     id: z.string(),
   });
 
-  const validateBodySchema = z.object({
+  const bodySchema = z.object({
     code: z.string().regex(/^\d{6}$/),
   });
 
-  const { id } = validateParamSchema.parse(request.params);
-  const { code } = validateBodySchema.parse(request.body);
+  const { id } = paramSchema.parse(request.params);
+  const { code } = bodySchema.parse(request.body);
 
   let validated_at = null
   try {
