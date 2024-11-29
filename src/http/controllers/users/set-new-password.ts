@@ -10,7 +10,6 @@ export async function setNewUserPassword(request: FastifyRequest, reply: Fastify
     maintenance_code: z.string().regex(/^\d{6}$/),
     new_password: z.string().min(6),
     confirm_new_password: z.string().min(6),
-
   });
 
   const {
