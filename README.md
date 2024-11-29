@@ -45,7 +45,7 @@ Não partem da necessidade do cliente, têm relação com as tecnologias utiliza
 - name
 - email
 - password
-- verified_at
+- validated_at
 - created_at
 
 ### Entidade Device

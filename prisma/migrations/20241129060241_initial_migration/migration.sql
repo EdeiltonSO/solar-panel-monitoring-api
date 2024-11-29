@@ -5,7 +5,7 @@ CREATE TABLE "users" (
     "email" TEXT NOT NULL,
     "password_hash" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "verified_at" TIMESTAMP(3),
+    "validated_at" TIMESTAMP(3),
     "maintenance_code" VARCHAR(6),
     "maintenance_code_created_at" TIMESTAMP(3),
 

@@ -54,13 +54,13 @@ export class PrismaUsersRepository implements UsersRepository {
         id,
       },
       data: {
-        verified_at: new Date(),
+        validated_at: new Date(),
         maintenance_code: null,
         maintenance_code_created_at: null    
       }
     })
 
-    return { verified_at: user.verified_at }
+    return { validated_at: user.validated_at }
   }
 
   async changePassword(id: string, newPasswordHash: string) {

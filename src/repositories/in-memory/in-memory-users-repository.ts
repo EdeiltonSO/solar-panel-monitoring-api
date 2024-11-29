@@ -23,7 +23,7 @@ export class InMemoryUsersRepository implements UsersRepository {
       name: data.name,
       email: data.email,
       password_hash: data.password_hash,
-      verified_at: null,
+      validated_at: null,
       created_at: new Date(),
       maintenance_code: null,
       maintenance_code_created_at: null
@@ -60,8 +60,8 @@ export class InMemoryUsersRepository implements UsersRepository {
         throw new UserNotFoundError();
     }
 
-    user.verified_at = new Date();
-    return { verified_at: user.verified_at };
+    user.validated_at = new Date();
+    return { validated_at: user.validated_at };
   }
 
   async changePassword(id: string, newPasswordHash: string) {

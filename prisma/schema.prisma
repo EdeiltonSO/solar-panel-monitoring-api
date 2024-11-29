@@ -20,7 +20,7 @@ model User {
   password_hash               String
   devices                     Link[]
   created_at                  DateTime  @default(now())
-  verified_at                 DateTime?
+  validated_at                DateTime?
   maintenance_code            String?   @db.VarChar(6)
   maintenance_code_created_at DateTime?
 
