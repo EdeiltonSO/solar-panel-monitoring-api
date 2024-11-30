@@ -5,6 +5,7 @@ export interface DevicesRepository {
     findByMac(address: string): Promise<Device | null>
     findManyByUserId(userId: string): Promise<Device[] | null>
     create(data: Prisma.DeviceCreateInput): Promise<Device>
+    toggleEnabledStatus(id: string, enabled: boolean): Promise<Device>
     update(id: string, data: Prisma.DeviceUpdateInput): Promise<Device>
     remove(id: string): Promise<void>
 }

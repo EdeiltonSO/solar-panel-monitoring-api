@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client'
+import { Device, Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import { DevicesRepository } from '../devices-repository-interface'
 
@@ -49,6 +49,15 @@ export class PrismaDevicesRepository implements DevicesRepository {
     })
 
     return device
+  }
+
+  async toggleEnabledStatus(id: string, enabled: boolean): Promise<Device> {
+    const device = await prisma.device.update({
+      where: { id },
+      data: { enabled },
+    });
+  
+    return device;
   }
 
   async update(id: string, data: Prisma.DeviceUpdateInput) {

@@ -13,7 +13,7 @@ O que o usuário pode fazer na aplicação?
 - [x] Editar o cadastro de um dispositivo;
 - [x] Remover um dispositivo;
 - [ ] Que o usuário obtenha uma lista com seus dispositivos cadastrados;
-- [ ] Ativar/desativar um dispositivo;
+- [x] Ativar/desativar um dispositivo;
 - [x] Obter o perfil de um usuário logado;
 - [x] Editar o perfil de um usuário logado;
 - [x] Que o usuário altere a própria senha;
