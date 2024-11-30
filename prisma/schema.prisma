@@ -45,8 +45,8 @@ model Link {
   device_id  String
   created_at DateTime @default(now())
 
-  user   User   @relation(fields: [user_id], references: [id])
-  device Device @relation(fields: [device_id], references: [id])
+  user   User   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  device Device @relation(fields: [device_id], references: [id], onDelete: Cascade)
 
   @@map("links")
 }

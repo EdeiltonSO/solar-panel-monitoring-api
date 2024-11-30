@@ -6,17 +6,20 @@ API do sistema de monitoramento de tensão e corrente do painel solar do núcleo
 
 O que o usuário pode fazer na aplicação?
 
-- [x] Deve ser possível se cadastrar;
-- [x] Deve ser possível se autenticar;
-- [x] Deve ser possível verificar a conta com e-mail;
-- [x] Deve ser possível cadastrar um novo dispositivo;
-- [ ] Deve ser possível editar o cadastro de um dispositivo;
-- [x] Deve ser possível obter o perfil de um usuário logado;
-- [x] Deve ser possível editar o perfil de um usuário logado;
-- [x] Deve ser possível que o usuário altere a própria senha;
-- [ ] Deve ser possível obter um resumo do monitoramento atual (para o dashboard);
-- [ ] Deve ser possível receber um e-mail de alerta em caso de mal funcionamento da placa solar;
-- [ ] Deve ser possível o usuário obter o histórico do monitoramento;
+- [x] Se cadastrar;
+- [x] Se autenticar;
+- [x] Validar a conta via e-mail;
+- [x] Cadastrar um novo dispositivo;
+- [x] Editar o cadastro de um dispositivo;
+- [x] Remover um dispositivo;
+- [ ] Que o usuário obtenha uma lista com seus dispositivos cadastrados;
+- [ ] Ativar/desativar um dispositivo;
+- [x] Obter o perfil de um usuário logado;
+- [x] Editar o perfil de um usuário logado;
+- [x] Que o usuário altere a própria senha;
+- [ ] Obter um resumo do monitoramento atual (para o dashboard);
+- [ ] Receber um e-mail de alerta em caso de mal funcionamento da placa solar;
+- [ ] Que o usuário obtenha o histórico do monitoramento;
 
 Note que esses requisitos não se transformam necessariamente em rotas HTTP na aplicação.
 

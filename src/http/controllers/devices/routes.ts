@@ -3,9 +3,11 @@ import { verifyJWT } from '@/http/middlewares/verify-jwt'
 import { FastifyInstance } from 'fastify'
 import { addDevice } from './add-device'
 import { updateDevice } from './update-device'
+import { removeDevice } from './remove-device'
 
 export async function devicesRoutes(app: FastifyInstance) {
   // authenticated and verified users
   app.post('/devices/create', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, addDevice)
   app.put('/devices/:id/update', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, updateDevice)
+  app.delete('/devices/:id', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, removeDevice)
 }
