@@ -36,8 +36,8 @@ CREATE TABLE "links" (
 -- CreateTable
 CREATE TABLE "status" (
     "id" TEXT NOT NULL,
-    "mV" INTEGER NOT NULL,
-    "mA" INTEGER NOT NULL,
+    "voltage" INTEGER NOT NULL,
+    "current" INTEGER NOT NULL,
     "device_id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -57,4 +57,4 @@ ALTER TABLE "links" ADD CONSTRAINT "links_user_id_fkey" FOREIGN KEY ("user_id") 
 ALTER TABLE "links" ADD CONSTRAINT "links_device_id_fkey" FOREIGN KEY ("device_id") REFERENCES "devices"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "status" ADD CONSTRAINT "status_device_id_fkey" FOREIGN KEY ("device_id") REFERENCES "devices"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "status" ADD CONSTRAINT "status_device_id_fkey" FOREIGN KEY ("device_id") REFERENCES "devices"("id") ON DELETE NO ACTION ON UPDATE CASCADE;

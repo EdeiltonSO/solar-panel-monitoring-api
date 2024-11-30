@@ -10,8 +10,8 @@ import { getDevices } from './get-devices'
 export async function devicesRoutes(app: FastifyInstance) {
   // authenticated and verified users
   app.get('/devices', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, getDevices)
-  app.post('/devices/create', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, addDevice)
-  app.put('/devices/:id/update', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, updateDevice)
+  app.post('/devices', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, addDevice)
+  app.put('/devices/:id', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, updateDevice)
   app.delete('/devices/:id', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, removeDevice)
   app.patch('/devices/:id/enabled', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, toggleEnabledStatusDevice)
 }

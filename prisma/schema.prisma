@@ -53,12 +53,12 @@ model Link {
 
 model Status {
   id         String   @id @default(uuid())
-  mV         Int
-  mA         Int
+  voltage    Int
+  current    Int
   device_id  String
   created_at DateTime @default(now())
 
-  device Device @relation(fields: [device_id], references: [id])
+  device Device @relation(fields: [device_id], references: [id], onDelete: NoAction)
 
   @@map("status")
 }

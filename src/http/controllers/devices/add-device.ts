@@ -26,7 +26,7 @@ export async function addDevice(request: FastifyRequest, reply: FastifyReply) {
 
     const { device } = await addDeviceService.execute({ user_id, device: deviceRequest })
 
-    return reply.status(200).send({
+    return reply.status(201).send({
       device
     });
 

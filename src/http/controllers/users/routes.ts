@@ -23,6 +23,6 @@ export async function usersRoutes(app: FastifyInstance) {
 
   // authenticated and verified users
   app.get('/me', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, profile)
-  app.put('/me/update', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, update)
+  app.put('/me', { onRequest: [verifyJWT, verifyIfUserIsVerified()] }, update)
   app.delete('/me', { onRequest: [verifyJWT] }, remove)
 }

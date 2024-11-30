@@ -17,9 +17,13 @@ O que o usuário pode fazer na aplicação?
 - [x] Obter o perfil de um usuário logado;
 - [x] Editar o perfil de um usuário logado;
 - [x] Que o usuário altere a própria senha;
+- [x] Salvar os status enviados por um dispositivo;
+- [ ] Obter os status por dispositivo;
+- [ ] Obter os status por usuário (agrupados por dispositivo);
 - [ ] Obter um resumo do monitoramento atual (para o dashboard);
 - [ ] Receber um e-mail de alerta em caso de mal funcionamento da placa solar;
 - [ ] Que o usuário obtenha o histórico do monitoramento;
+- [ ] Enviar os registros de status antigos por email e apagar do banco;
 
 Note que esses requisitos não se transformam necessariamente em rotas HTTP na aplicação.
 
@@ -30,8 +34,8 @@ Como os requisitos são implementados? Quais as restrições?
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [x] O usuário pode cadastrar mais de um dispositivo;
 - [ ] Um dispositivo pode ser monitorado por mais de um usuário;
-- [ ] Deve haver uma forma de autenticar o dispositivo que envia os dados de status;
-- [ ] O dispositivo deve enviar o seu endereço MAC junto com a requisição;
+- [x] Deve haver uma forma de autenticar o dispositivo que envia os dados de status;
+- [x] O dispositivo deve enviar o seu endereço MAC junto com a requisição;
 
 ## Requisitos não-funcionais (RNF)
 
