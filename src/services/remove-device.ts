@@ -9,10 +9,6 @@ interface RemoveDeviceServiceRequest {
     device_id: string
 }
 
-// interface RemoveDeviceServiceResponse {
-//     device: Device
-// }
-
 export class RemoveDeviceService {
     constructor(
         private devicesRepository: DevicesRepository,
@@ -20,26 +16,9 @@ export class RemoveDeviceService {
     ) {}
   
     async execute({ user_id, device_id }: RemoveDeviceServiceRequest): Promise<void> {
-        const deviceToRemove = await this.devicesRepository.findById(device_id)
+        const link = await this.linksRepository.findLinkBetweenUserIdAndDeviceId(user_id, device_id)
 
-        if (!deviceToRemove) {
-            throw new DeviceNotFoundError()
-        }
-
-        const links = await this.linksRepository.findManyByUserId(user_id)
-
-        if (!links) {
-            throw new DeviceNotFoundError()
-        }
-
-        let deviceBelongsToUser = false
-        links.map((link) => {
-            if (link.device_id === device_id) {
-                deviceBelongsToUser = true
-            }
-        })
-
-        if (!deviceBelongsToUser) {
+        if (!link) {
             throw new DeviceNotFoundError()
         }
 

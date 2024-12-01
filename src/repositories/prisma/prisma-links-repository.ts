@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client'
+import { Link, Prisma } from '@prisma/client'
 import { prisma } from '@/lib/prisma'
 import { LinksRepository } from '../links-repository-interface'
 
@@ -31,6 +31,17 @@ export class PrismaLinksRepository implements LinksRepository {
     })
   
     return links
+  }
+
+  async findLinkBetweenUserIdAndDeviceId(userId: string, deviceId: string): Promise<Link | null> {
+    const link = await prisma.link.findFirst({
+      where: {
+        user_id: userId,
+        device_id: deviceId
+      },
+    })
+  
+    return link
   }
   
   async create(data: Prisma.LinkUncheckedCreateInput) {

@@ -15,38 +15,38 @@ export class PrismaStatusRepository implements StatusRepository {
   }
 
   async findManyByDeviceId(deviceId: string, date: Date, page: number) {
-    const startOfTheDay = dayjs(date).startOf('date')
-    const endOfTheDay = dayjs(date).startOf('date')
+    const startOfTheDay = dayjs(date ? date : new Date()).startOf('date')
+    const endOfTheDay = dayjs(date ? date : new Date()).startOf('date')
     
     const status = await prisma.status.findMany({
       where: {
         device_id: deviceId,
-        created_at: {
+        created_at: date ? {
           gte: startOfTheDay.toDate(),
           lte: endOfTheDay.toDate(),
-        },
+        } : undefined,
       },
-      take: 50,
-      skip: (page - 1) * 50,
+      take: page ? 50 : undefined,
+      skip: page ? (page - 1) * 50 : undefined,
     })
   
     return status
   }
 
   async findManyByUserId(userId: string, date: Date, page: number) {
-    const startOfTheDay = dayjs(date).startOf('date')
-    const endOfTheDay = dayjs(date).startOf('date')
+    const startOfTheDay = dayjs(date ? date : new Date()).startOf('date')
+    const endOfTheDay = dayjs(date ? date : new Date()).startOf('date')
 
     const links = await prisma.link.findMany({
       where: {
         user_id: userId,
-        created_at: {
+        created_at: date ? {
           gte: startOfTheDay.toDate(),
           lte: endOfTheDay.toDate(),
-        },
+        } : undefined,
       },
-      take: 50,
-      skip: (page - 1) * 50,
+      take: page ? 50 : undefined,
+      skip: page ? (page - 1) * 50 : undefined,
     })
 
     const deviceIds = links.map(link => link.device_id)
