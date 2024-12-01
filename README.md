@@ -18,8 +18,8 @@ O que o usuário pode fazer na aplicação?
 - [x] Editar o perfil de um usuário logado;
 - [x] Que o usuário altere a própria senha;
 - [x] Salvar os status enviados por um dispositivo;
-- [ ] Obter os status por dispositivo;
-- [ ] Obter os status por usuário (agrupados por dispositivo);
+- [x] Obter os status por dispositivo;
+- [x] Obter os status por usuário (agrupados por dispositivo);
 - [ ] Obter um resumo do monitoramento atual (para o dashboard);
 - [ ] Receber um e-mail de alerta em caso de mal funcionamento da placa solar;
 - [ ] Que o usuário obtenha o histórico do monitoramento;
@@ -33,9 +33,9 @@ Como os requisitos são implementados? Quais as restrições?
 
 - [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [x] O usuário pode cadastrar mais de um dispositivo;
-- [ ] Um dispositivo pode ser monitorado por mais de um usuário;
 - [x] Deve haver uma forma de autenticar o dispositivo que envia os dados de status;
 - [x] O dispositivo deve enviar o seu endereço MAC junto com a requisição;
+- [ ] Um dispositivo pode ser monitorado por mais de um usuário;
 
 ## Requisitos não-funcionais (RNF)
 
@@ -43,8 +43,8 @@ Não partem da necessidade do cliente, têm relação com as soluções tecnoló
 
 - [x] A senha do usuário precisa estar criptografada;
 - [x] Os dados de status devem estar persistidos em um banco PostgreSQL;
-- [ ] As listas de status devem ser obtidas com paginação;
 - [x] O usuário web deve ser identificado por um token JWT;
+- [ ] As listas de status devem ser obtidas com paginação;
 
 ## Esquema do banco de dados
 
